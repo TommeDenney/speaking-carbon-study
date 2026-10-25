@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speaking Carbon Study</title>
+<meta name="description" content="Flashcards, Learn, Match, a Kahoot-style game and the full study guide for the Speaking Carbon (CLMTG5046) midterm.">
+<meta name="theme-color" content="#f8f3ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">🌿</span>
+      <div>
+        <h1>Speaking Carbon</h1>
+        <p class="sub">CLMTG5046 · Midterm study</p>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-view="cards" role="tab">Flashcards</button>
+      <button class="tab" data-view="learn" role="tab">Learn</button>
+      <button class="tab" data-view="match" role="tab">Match</button>
+      <button class="tab" data-view="kahoot" role="tab">Carboot!</button>
+      <button class="tab" data-view="guide" role="tab">Guide</button>
+    </nav>
+  </header>
+
+  <div class="chips" id="chips" aria-label="Topic filter"></div>
+
+  <main>
+    <!-- FLASHCARDS -->
+    <section class="view active" id="view-cards">
+      <div class="progress-row">
+        <span id="cardCount"></span>
+        <div class="bar"><i id="cardBar"></i></div>
+        <span class="pill" id="knowCount">0 known</span>
+      </div>
+      <div class="flip-wrap">
+        <div class="card" id="card" tabindex="0" role="button" aria-label="Flashcard, press space to flip">
+          <div class="face front">
+            <span class="tag" id="cardTag"></span>
+            <div class="content" id="cardFront"></div>
+            <span class="hint">tap to flip · space</span>
+          </div>
+          <div class="face back">
+            <span class="tag" id="cardTag2"></span>
+            <div class="content" id="cardBack"></div>
+            <div class="fig" id="cardFig"></div>
+            <div class="refs" id="cardRefs"></div>
+          </div>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn ghost" id="prevCard" aria-label="Previous card">←</button>
+        <button class="btn learning" id="markLearning">Still learning</button>
+        <button class="btn knowit" id="markKnow">Know it ✓</button>
+        <button class="btn ghost" id="nextCard" aria-label="Next card">→</button>
+      </div>
+      <div class="controls small">
+        <button class="btn soft" id="shuffleCards">🔀 Shuffle</button>
+        <button class="btn soft" id="flipSide">↔ Start with definition</button>
+        <button class="btn soft" id="onlyLearning">Only “still learning”</button>
+        <button class="btn soft" id="resetCards">Reset progress</button>
+      </div>
+      <p class="kbd-hint">Keyboard: ← → to move · space to flip · 1 still learning · 2 know it</p>
+    </section>
+
+    <!-- LEARN -->
+    <section class="view" id="view-learn">
+      <div class="progress-row">
+        <span>Mastered</span>
+        <div class="bar"><i id="learnBar"></i></div>
+        <span id="learnCount"></span>
+      </div>
+      <div class="panel" id="learnPanel"></div>
+    </section>
+
+    <!-- MATCH -->
+    <section class="view" id="view-match">
+      <div class="match-head">
+        <p>Match each term to its definition. Tap one, then its partner.</p>
+        <div class="match-stats"><span class="pill" id="matchTime">0.0s</span><span class="pill soft" id="matchBest"></span><button class="btn soft" id="matchNew">New round</button></div>
+      </div>
+      <div class="match-grid" id="matchGrid"></div>
+    </section>
+
+    <!-- KAHOOT -->
+    <section class="view" id="view-kahoot">
+      <div id="kRoot"></div>
+    </section>
+
+    <!-- GUIDE -->
+    <section class="view" id="view-guide">
+      <div class="guide-head">
+        <h2>Completed Midterm Study Guide</h2>
+        <p>All 33 questions with full answers. The lecture page numbers are pages in the <strong>combined SpeakingCarbonLectures PDF</strong>. Each one also shows the week's own slide numbers.</p>
+        <input type="search" id="guideSearch" placeholder="Search the guide… (e.g. Bjerrum, NBP, iron)" aria-label="Search the guide">
+      </div>
+      <div id="guideList"></div>
+    </section>
+  </main>
+
+  <footer>Built from the Completed Midterm Study Guide &amp; Week 1–6 lecture slides · Midterm Oct 26 · Good luck, Divine 💜</footer>
+
+  <script src="guide.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
